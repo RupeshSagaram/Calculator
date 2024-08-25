@@ -24,7 +24,8 @@ function add(...values){
     arr.push(...values);
     let result = arr.reduce((total,current)=> total + current);
         console.log(result);
-        return result;
+        output.textContent = result;
+        
 }
 
 function subtract(...values){
@@ -132,9 +133,9 @@ equalto.addEventListener('click',()=> {
     console.log(firstNum);
     console.log(secondNum);
     console.log(operatorSign);
-     operate(firstNum,operatorSign,secondNum);
-    //  output.textContent = solution;
-    //  console.log(solution);
+    operate(firstNum,operatorSign,secondNum);
+       
+    //console.log(solution);
 });
 
 
