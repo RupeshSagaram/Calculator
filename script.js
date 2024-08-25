@@ -74,22 +74,52 @@ function operate(number1, operator, number2){
     }
 }
 
-dig1.addEventListener('click',()=> output.textContent+=1);
-dig2.addEventListener('click',()=> output.textContent+=2);
-dig3.addEventListener('click',()=> output.textContent+=3);
-dig4.addEventListener('click',()=> output.textContent+=4);
-dig5.addEventListener('click',()=> output.textContent+=5);
-dig6.addEventListener('click',()=> output.textContent+=6);
-dig7.addEventListener('click',()=> output.textContent+=7);
-dig8.addEventListener('click',()=> output.textContent+=8);
-dig9.addEventListener('click',()=> output.textContent+=9);
-dig0.addEventListener('click',()=> output.textContent+=0);
-plus.addEventListener('click',()=> output.textContent+= '+');
-minus.addEventListener('click',()=> output.textContent+= '-');
-digMultiply.addEventListener('click',()=> output.textContent+='x');
-digDivide.addEventListener('click',()=> output.textContent+='/');
+let displayValue = output.textContent;
+
+dig1.addEventListener('click',()=> {output.textContent+=1;
+    displayValue = output.textContent;
+});
+dig2.addEventListener('click',()=> {output.textContent+=2;
+    displayValue = output.textContent;
+});
+dig3.addEventListener('click',()=> {output.textContent+=3;
+    displayValue = output.textContent;
+});
+dig4.addEventListener('click',()=> {output.textContent+=4
+    displayValue = output.textContent;
+});
+dig5.addEventListener('click',()=> {output.textContent+=5
+    displayValue = output.textContent;
+});
+dig6.addEventListener('click',()=> {output.textContent+=6
+    displayValue = output.textContent;
+});
+dig7.addEventListener('click',()=> {output.textContent+=7
+    displayValue = output.textContent;
+});
+dig8.addEventListener('click',()=> {output.textContent+=8
+    displayValue = output.textContent;
+});
+dig9.addEventListener('click',()=> {displayValue+=9
+    displayValue = output.textContent;
+});
+dig0.addEventListener('click',()=> {output.textContent+=0
+    displayValue = output.textContent;
+});
+clear.addEventListener('click',()=> {output.textContent = '';
+    displayValue = output.textContent;
+});
+// plus.addEventListener('click',()=> output.textContent+= '+');
+// minus.addEventListener('click',()=> output.textContent+= '-');
+// digMultiply.addEventListener('click',()=> output.textContent+='x');
+// digDivide.addEventListener('click',()=> output.textContent+='/');
 //equalto.addEventListener('click',()=> output.innerHTML=1);
-clear.addEventListener('click',()=> output.textContent = '');
+
+
+
+
+
+
 
 
 
