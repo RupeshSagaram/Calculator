@@ -1,4 +1,4 @@
-const dig1 = document.getElementById('dig1');
+const dig1 = document.querySelector('#dig1');
 const dig2 = document.querySelector('#dig2');
 const dig3 = document.querySelector('#dig3');
 const dig4 = document.querySelector('#dig4');
@@ -23,7 +23,7 @@ function add(...values){
     let arr =[];
     arr.push(...values);
     let result = arr.reduce((total,current)=> total + current);
-        // console.log(result);
+        console.log(result);
         return result;
 }
 
@@ -55,9 +55,10 @@ let operator;
 let number2;
 
 function operate(number1, operator, number2){
+    
     switch(operator){
-        case add: 
-            add(number1, number2);
+        case '+': 
+           add(number1, number2);
         break;
 
         case subtract:
@@ -74,48 +75,67 @@ function operate(number1, operator, number2){
     }
 }
 
-let displayValue = output.textContent;
+let displayValue;
 
 dig1.addEventListener('click',()=> {output.textContent+=1;
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 dig2.addEventListener('click',()=> {output.textContent+=2;
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 dig3.addEventListener('click',()=> {output.textContent+=3;
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 dig4.addEventListener('click',()=> {output.textContent+=4
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 dig5.addEventListener('click',()=> {output.textContent+=5
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 dig6.addEventListener('click',()=> {output.textContent+=6
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 dig7.addEventListener('click',()=> {output.textContent+=7
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 dig8.addEventListener('click',()=> {output.textContent+=8
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
-dig9.addEventListener('click',()=> {displayValue+=9
-    displayValue = output.textContent;
+dig9.addEventListener('click',()=> {output.textContent+=9
+    // displayValue = output.textContent;
 });
 dig0.addEventListener('click',()=> {output.textContent+=0
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
 clear.addEventListener('click',()=> {output.textContent = '';
-    displayValue = output.textContent;
+    // displayValue = output.textContent;
 });
-// plus.addEventListener('click',()=> output.textContent+= '+');
+
+let firstNum;
+let secondNum;
+let operatorSign;
+ plus.addEventListener('click',()=> {
+     firstNum = +(output.textContent);
+     console.log(firstNum);
+     operatorSign = '+';
+    output.textContent = '';
+    return firstNum,operatorSign;
+    
+});
+
 // minus.addEventListener('click',()=> output.textContent+= '-');
 // digMultiply.addEventListener('click',()=> output.textContent+='x');
 // digDivide.addEventListener('click',()=> output.textContent+='/');
-//equalto.addEventListener('click',()=> output.innerHTML=1);
-
-
+let solution;
+equalto.addEventListener('click',()=> {
+    secondNum = +(output.textContent);
+    console.log(firstNum);
+    console.log(secondNum);
+    console.log(operatorSign);
+     operate(firstNum,operatorSign,secondNum);
+    //  output.textContent = solution;
+    //  console.log(solution);
+});
 
 
 
