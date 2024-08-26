@@ -32,21 +32,24 @@ function subtract(...values){
     let arr =[];
     arr.push(...values);
     let result = arr.reduce((total,current)=> total - current);
-         return result;
+    console.log(result);
+    output.textContent = result;
 }
 
 function multiply(...values){
     let arr =[];
     arr.push(...values);
     let result = arr.reduce((total,current)=> total * current);
-        return result;
+    console.log(result);
+    output.textContent = result;
 }
 
 function divide(...values){
     let arr =[];
     arr.push(...values);
     let result = arr.reduce((total,current)=> total / current);
-       return result;
+    console.log(result);
+    output.textContent = result;
 }
 
 //variables for calculator operation , two numbers and one operator
@@ -62,15 +65,15 @@ function operate(number1, operator, number2){
            add(number1, number2);
         break;
 
-        case subtract:
+        case '-':
             subtract(number1,number2);
         break;
 
-        case multiply:
+        case '*':
             multiply(number1,number2);
         break;
 
-        case divide:
+        case '/':
             divide(number1,number2);
         break;  
     }
@@ -124,9 +127,27 @@ let operatorSign;
     
 });
 
-// minus.addEventListener('click',()=> output.textContent+= '-');
-// digMultiply.addEventListener('click',()=> output.textContent+='x');
-// digDivide.addEventListener('click',()=> output.textContent+='/');
+minus.addEventListener('click',()=> {
+    firstNum = +(output.textContent);
+    console.log(firstNum);
+    operatorSign = '-';
+   output.textContent = '';
+   return firstNum,operatorSign;
+});
+digMultiply.addEventListener('click',()=> {
+    firstNum = +(output.textContent);
+    console.log(firstNum);
+    operatorSign = '*';
+   output.textContent = '';
+   return firstNum,operatorSign;
+});
+digDivide.addEventListener('click',()=> {
+    firstNum = +(output.textContent);
+    console.log(firstNum);
+    operatorSign = '/';
+   output.textContent = '';
+   return firstNum,operatorSign;
+});
 let solution;
 equalto.addEventListener('click',()=> {
     secondNum = +(output.textContent);
@@ -137,8 +158,6 @@ equalto.addEventListener('click',()=> {
        
     //console.log(solution);
 });
-
-
 
 
 
