@@ -17,41 +17,6 @@ const output = document.querySelector('#output');
 const clear = document.querySelector('#clear');
 
 
-//basic math functions for the calculator
-
-function add(...values){
-    let arr =[];
-    arr.push(...values);
-    let result = arr.reduce((total,current)=> total + current);
-        console.log(result);
-        output.textContent = result;
-        
-}
-
-function subtract(...values){
-    let arr =[];
-    arr.push(...values);
-    let result = arr.reduce((total,current)=> total - current);
-    console.log(result);
-    output.textContent = result;
-}
-
-function multiply(...values){
-    let arr =[];
-    arr.push(...values);
-    let result = arr.reduce((total,current)=> total * current);
-    console.log(result);
-    output.textContent = result;
-}
-
-function divide(...values){
-    let arr =[];
-    arr.push(...values);
-    let result = arr.reduce((total,current)=> total / current);
-    console.log(result);
-    output.textContent = result;
-}
-
 //variables for calculator operation , two numbers and one operator
 
 let number1;
@@ -62,24 +27,21 @@ function operate(number1, operator, number2){
     
     switch(operator){
         case '+': 
-           add(number1, number2);
-        break;
+           return number1 + number2;
 
         case '-':
-            subtract(number1,number2);
-        break;
+           return number1- number2;
 
         case '*':
-            multiply(number1,number2);
-        break;
+            return number1* number2;
 
         case '/':
-            divide(number1,number2);
-        break;  
+            return number1 / number2;
     }
 }
 
 let displayValue;
+
 
 dig1.addEventListener('click',()=> {output.textContent+=1;
     // displayValue = output.textContent;
@@ -112,54 +74,87 @@ dig0.addEventListener('click',()=> {output.textContent+=0
     // displayValue = output.textContent;
 });
 clear.addEventListener('click',()=> {output.textContent = '';
+    firstNum=secondNum=operatorSign = null;
     // displayValue = output.textContent;
 });
 
-let firstNum;
-let secondNum;
-let operatorSign;
+let firstNum =null;
+let secondNum=null;
+let operatorSign=null;
+let result = null;
+
  plus.addEventListener('click',()=> {
-     firstNum = +(output.textContent);
-     console.log(firstNum);
-     operatorSign = '+';
+     if(!(firstNum==null) && !(operatorSign==null)){
+        secondNum = +(output.textContent);
+        result = operate(firstNum,operatorSign,secondNum);       
+        firstNum = result;
+        operatorSign= secondNum = null;
+       return output.textContent = result;       
+
+     } else {
+        firstNum = +(output.textContent);
+        operatorSign = '+';
+     }
     output.textContent = '';
     return firstNum,operatorSign;
     
 });
 
 minus.addEventListener('click',()=> {
-    firstNum = +(output.textContent);
-    console.log(firstNum);
-    operatorSign = '-';
-   output.textContent = '';
-   return firstNum,operatorSign;
+    if(!(firstNum==null) && !(operatorSign==null)){
+        secondNum = +(output.textContent);
+        result = operate(firstNum,operatorSign,secondNum);       
+        firstNum = result;
+        operatorSign= secondNum = null;
+       return output.textContent = result;       
+
+     } else {
+        firstNum = +(output.textContent);
+        operatorSign = '-';
+     }
+    output.textContent = '';
+    return firstNum,operatorSign;
 });
 digMultiply.addEventListener('click',()=> {
-    firstNum = +(output.textContent);
-    console.log(firstNum);
-    operatorSign = '*';
-   output.textContent = '';
-   return firstNum,operatorSign;
+    if(!(firstNum==null) && !(operatorSign==null)){
+        secondNum = +(output.textContent);
+        result = operate(firstNum,operatorSign,secondNum);       
+        firstNum = result;
+        operatorSign= secondNum = null;
+       return output.textContent = result;       
+
+     } else {
+        firstNum = +(output.textContent);
+        operatorSign = '*';
+     }
+    output.textContent = '';
+    return firstNum,operatorSign;
 });
 digDivide.addEventListener('click',()=> {
-    firstNum = +(output.textContent);
-    console.log(firstNum);
-    operatorSign = '/';
-   output.textContent = '';
-   return firstNum,operatorSign;
+    if(!(firstNum==null) && !(operatorSign==null)){
+        secondNum = +(output.textContent);
+        result = operate(firstNum,operatorSign,secondNum);       
+        firstNum = result;
+        operatorSign= secondNum = null;
+       return output.textContent = result;       
+
+     } else {
+        firstNum = +(output.textContent);
+        operatorSign = '/';
+     }
+    output.textContent = '';
+    return firstNum,operatorSign;
 });
-let solution;
+
 equalto.addEventListener('click',()=> {
     secondNum = +(output.textContent);
     console.log(firstNum);
     console.log(secondNum);
     console.log(operatorSign);
-    operate(firstNum,operatorSign,secondNum);
+    result = operate(firstNum,operatorSign,secondNum);
+    output.textContent = result;
+    secondNum = operatorSign = null;
        
     //console.log(solution);
 });
-
-
-
-
 
