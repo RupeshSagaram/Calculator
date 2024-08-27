@@ -36,8 +36,13 @@ function operate(number1, operator, number2){
             return number1* number2;
 
         case '/':
+            if(secondNum===0){
+                result= output.textContent = 'lol'
+                return result;
+             } else{
             return number1 / number2;
-    }
+             }
+    }   
 }
 
 let displayValue;
@@ -146,10 +151,16 @@ digDivide.addEventListener('click',()=> {
     return firstNum,operatorSign;
 });
 
+
+
 equalto.addEventListener('click',()=> {
     secondNum = +(output.textContent);
     result = operate(firstNum,operatorSign,secondNum);
+    if(typeof result !== Number){
+        output.textContent = result;
+    } else{
     output.textContent = +(result.toFixed(5));
+        }
     secondNum = operatorSign = null;
        
     //console.log(solution);
