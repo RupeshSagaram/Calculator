@@ -148,11 +148,8 @@ digDivide.addEventListener('click',()=> {
 
 equalto.addEventListener('click',()=> {
     secondNum = +(output.textContent);
-    console.log(firstNum);
-    console.log(secondNum);
-    console.log(operatorSign);
     result = operate(firstNum,operatorSign,secondNum);
-    output.textContent = result;
+    output.textContent = +(result.toFixed(5));
     secondNum = operatorSign = null;
        
     //console.log(solution);
