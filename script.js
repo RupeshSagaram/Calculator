@@ -12,6 +12,7 @@ const plus = document.querySelector('#add');
 const minus = document.querySelector('#subtract');
 const digMultiply = document.querySelector('#multiply');
 const digDivide = document.querySelector('#divide');
+const dotButton = document.querySelector('#dot');
 const equalto = document.querySelector('#equalto');
 const output = document.querySelector('#output');
 const clear = document.querySelector('#clear');
@@ -27,7 +28,7 @@ function operate(number1, operator, number2){
     
     switch(operator){
         case '+': 
-           return number1 + number2;
+           return (parseFloat(number1) + parseFloat(number2));
 
         case '-':
            return number1- number2;
@@ -80,6 +81,7 @@ dig0.addEventListener('click',()=> {output.textContent+=0
 });
 clear.addEventListener('click',()=> {output.textContent = '';
     firstNum=secondNum=operatorSign = null;
+    alreadyClicked = false;
     // displayValue = output.textContent;
 });
 
@@ -87,6 +89,7 @@ let firstNum =null;
 let secondNum=null;
 let operatorSign=null;
 let result = null;
+let alreadyClicked = false;
 
  plus.addEventListener('click',()=> {
      if(!(firstNum==null) && !(operatorSign==null)){
@@ -101,6 +104,7 @@ let result = null;
         operatorSign = '+';
      }
     output.textContent = '';
+    alreadyClicked = false;
     return firstNum,operatorSign;
     
 });
@@ -118,6 +122,7 @@ minus.addEventListener('click',()=> {
         operatorSign = '-';
      }
     output.textContent = '';
+    alreadyClicked = false;
     return firstNum,operatorSign;
 });
 digMultiply.addEventListener('click',()=> {
@@ -133,6 +138,7 @@ digMultiply.addEventListener('click',()=> {
         operatorSign = '*';
      }
     output.textContent = '';
+    alreadyClicked = false;
     return firstNum,operatorSign;
 });
 digDivide.addEventListener('click',()=> {
@@ -148,10 +154,22 @@ digDivide.addEventListener('click',()=> {
         operatorSign = '/';
      }
     output.textContent = '';
+    alreadyClicked = false;
     return firstNum,operatorSign;
+    
 });
 
-
+dotButton.addEventListener('click',(event)=>{
+    if(alreadyClicked === true){
+        event.preventDefault();
+        //dotButton.disabled = true;
+    } else if(alreadyClicked === false){
+        firstNum = output.textContent;
+         output.textContent = firstNum + '.';
+         event.stopPropagation();
+        alreadyClicked = true;
+    }
+});
 
 equalto.addEventListener('click',()=> {
     secondNum = +(output.textContent);
@@ -162,6 +180,7 @@ equalto.addEventListener('click',()=> {
     output.textContent = +(result.toFixed(5));
         }
     secondNum = operatorSign = null;
+    alreadyClicked = false;
        
     //console.log(solution);
 });
