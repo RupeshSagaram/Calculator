@@ -28,20 +28,20 @@ function operate(number1, operator, number2){
     
     switch(operator){
         case '+': 
-           return (parseFloat(number1) + parseFloat(number2));
+           return +(number1) + +(number2);
 
         case '-':
-           return number1- number2;
+           return +(number1) - +(number2);
 
         case '*':
-            return number1* number2;
+            return +(number1) * +(number2);
 
         case '/':
             if(secondNum===0){
                 result= output.textContent = 'lol'
                 return result;
              } else{
-            return number1 / number2;
+            return +(number1) / +(number2);
              }
     }   
 }
@@ -95,12 +95,12 @@ let alreadyClicked = false;
      if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
-        firstNum = result;
+        firstNum = +(result.toFixed(3));;
         operatorSign= secondNum = null;
        return output.textContent = result;       
 
      } else {
-        firstNum = +(output.textContent);
+        firstNum = parseFloat(output.textContent);
         operatorSign = '+';
      }
     output.textContent = '';
@@ -113,7 +113,7 @@ minus.addEventListener('click',()=> {
     if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
-        firstNum = result;
+        firstNum = +(result.toFixed(3));
         operatorSign= secondNum = null;
        return output.textContent = result;       
 
@@ -129,7 +129,7 @@ digMultiply.addEventListener('click',()=> {
     if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
-        firstNum = result;
+        firstNum = +(result.toFixed(3));
         operatorSign= secondNum = null;
        return output.textContent = result;       
 
@@ -145,7 +145,7 @@ digDivide.addEventListener('click',()=> {
     if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
-        firstNum = result;
+        firstNum = +(result.toFixed(3));
         operatorSign= secondNum = null;
        return output.textContent = result;       
 
@@ -164,8 +164,10 @@ dotButton.addEventListener('click',(event)=>{
         event.preventDefault();
         //dotButton.disabled = true;
     } else if(alreadyClicked === false){
-        firstNum = output.textContent;
-         output.textContent = firstNum + '.';
+        num = output.textContent;
+        output.textContent = num + '.';
+       // firstNum = output.textContent;
+        // output.textContent = firstNum + '.';
          event.stopPropagation();
         alreadyClicked = true;
     }
@@ -175,9 +177,10 @@ equalto.addEventListener('click',()=> {
     secondNum = +(output.textContent);
     result = operate(firstNum,operatorSign,secondNum);
     if(typeof result !== Number){
+        console.log(result);
         output.textContent = result;
     } else{
-    output.textContent = +(result.toFixed(5));
+    output.textContent = +(result.toFixed(3));
         }
     secondNum = operatorSign = null;
     alreadyClicked = false;
