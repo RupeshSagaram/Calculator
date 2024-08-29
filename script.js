@@ -8,6 +8,7 @@ const dig7 = document.querySelector('#dig7');
 const dig8 = document.querySelector('#dig8');
 const dig9 = document.querySelector('#dig9');
 const dig0 = document.querySelector('#dig0');
+const backspaceButton = document.querySelector('#backspace');
 const plus = document.querySelector('#add');
 const minus = document.querySelector('#subtract');
 const digMultiply = document.querySelector('#multiply');
@@ -172,6 +173,13 @@ dotButton.addEventListener('click',(event)=>{
         alreadyClicked = true;
     }
 });
+
+backspaceButton.addEventListener('click',()=>{
+    let num = output.textContent;
+    let arr = num.split('');
+    arr.pop();
+    output.textContent = arr.join("");
+})
 
 equalto.addEventListener('click',()=> {
     secondNum = +(output.textContent);
