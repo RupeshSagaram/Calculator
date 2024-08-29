@@ -85,10 +85,10 @@ clear.addEventListener('click',()=> {output.textContent = '';
     alreadyClicked = false;
     // displayValue = output.textContent;
 });
-
+let alreadyClicked = false;
 
 document.addEventListener('keydown',(event)=>{
-    console.log(event);
+    
 
     switch(event.key){
         case '1':
@@ -133,6 +133,23 @@ document.addEventListener('keydown',(event)=>{
         case '/':
             divide();
         break;
+        case '.':
+            function dotOperator(event){
+                if(alreadyClicked === true){
+                    //event.preventDefault();
+                    dotButton.disabled = true;
+                } 
+                else if(alreadyClicked === false){
+                    output.textContent += '.';
+                   // firstNum = output.textContent;
+                    // output.textContent = firstNum + '.';
+                    dotButton.disabled = false;
+                     //event.stopPropagation();
+                    alreadyClicked = true;
+                }
+            }
+            dotOperator();
+        break;
         case 'Backspace':
             backSpace();
         break;
@@ -147,7 +164,7 @@ let firstNum =null;
 let secondNum=null;
 let operatorSign=null;
 let result = null;
-let alreadyClicked = false;
+
 
   plus.addEventListener('click',add = ()=> {
      if(!(firstNum==null) && !(operatorSign==null)){
@@ -217,7 +234,7 @@ digDivide.addEventListener('click', divide = ()=> {
     
 });
 
-dotButton.addEventListener('click' && 'keydown', dot =(event)=>{
+dotButton.addEventListener('click', dot =(event)=>{
     if(alreadyClicked === true){
         event.preventDefault();
         //dotButton.disabled = true;
