@@ -86,13 +86,70 @@ clear.addEventListener('click',()=> {output.textContent = '';
     // displayValue = output.textContent;
 });
 
+
+document.addEventListener('keydown',(event)=>{
+    console.log(event);
+
+    switch(event.key){
+        case '1':
+            output.textContent +=1;
+        break;
+        case '2':
+            output.textContent +=2;
+        break;
+        case '3':
+            output.textContent +=3;
+        break;
+        case '4':
+            output.textContent +=4;
+        break;
+        case '5':
+            output.textContent +=5;
+        break;
+        case '6':
+            output.textContent +=6;
+        break;
+        case '7':
+            output.textContent +=7;
+        break;
+        case '8':
+            output.textContent +=8;
+        break;
+        case '9':
+            output.textContent +=9;
+        break;
+        case '0':
+            output.textContent +=0;
+        break;
+        case  '+':
+            add();
+        break;
+        case '_':
+            subtract();
+        break;
+        case '*':
+            multiply();
+        break;
+        case '/':
+            divide();
+        break;
+        case 'Backspace':
+            backSpace();
+        break;
+        case 'Enter':
+            equalTo();
+        break;
+    }
+
+});
+
 let firstNum =null;
 let secondNum=null;
 let operatorSign=null;
 let result = null;
 let alreadyClicked = false;
 
- plus.addEventListener('click',()=> {
+  plus.addEventListener('click',add = ()=> {
      if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
@@ -110,7 +167,7 @@ let alreadyClicked = false;
     
 });
 
-minus.addEventListener('click',()=> {
+minus.addEventListener('click',subtract = ()=> {
     if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
@@ -126,7 +183,7 @@ minus.addEventListener('click',()=> {
     alreadyClicked = false;
     return firstNum,operatorSign;
 });
-digMultiply.addEventListener('click',()=> {
+digMultiply.addEventListener('click',multiply = ()=> {
     if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
@@ -142,7 +199,7 @@ digMultiply.addEventListener('click',()=> {
     alreadyClicked = false;
     return firstNum,operatorSign;
 });
-digDivide.addEventListener('click',()=> {
+digDivide.addEventListener('click', divide = ()=> {
     if(!(firstNum==null) && !(operatorSign==null)){
         secondNum = +(output.textContent);
         result = operate(firstNum,operatorSign,secondNum);       
@@ -160,7 +217,7 @@ digDivide.addEventListener('click',()=> {
     
 });
 
-dotButton.addEventListener('click',(event)=>{
+dotButton.addEventListener('click' && 'keydown', dot =(event)=>{
     if(alreadyClicked === true){
         event.preventDefault();
         //dotButton.disabled = true;
@@ -174,14 +231,14 @@ dotButton.addEventListener('click',(event)=>{
     }
 });
 
-backspaceButton.addEventListener('click',()=>{
+backspaceButton.addEventListener('click', backSpace = ()=>{
     let num = output.textContent;
     let arr = num.split('');
     arr.pop();
     output.textContent = arr.join("");
 })
 
-equalto.addEventListener('click',()=> {
+equalto.addEventListener('click', equalTo = ()=> {
     secondNum = +(output.textContent);
     result = operate(firstNum,operatorSign,secondNum);
     if(typeof result !== Number){
