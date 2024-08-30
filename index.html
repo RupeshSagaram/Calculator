@@ -4,28 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <button class = 'number'id="dig1" value = '1'>1</button>
-        <button class = 'number'id="dig2" value = '2'>2</button>
-        <button  class = 'number'id="dig3" value = '3'>3</button>
-        <button class = 'number'id="dig4" value = '4'>4</button>
-        <button class = 'number'id="dig5" value = '5'>5</button>
-        <button class = 'number'id="dig6" value = '6'>6</button>
-        <button class = 'number'id="dig7" value = '7'>7</button>
-        <button class = 'number'id="dig8" value = '8'>8</button>
-        <button class = 'number'id="dig9" value = '9'>9</button>
-        <button class = 'number'id="dig0" value = '0'>0</button>
-        <button class = 'operator'id="backspace" >bs</button>
-        <button class ='operator'id="add">+</button>
-        <button class ='operator'id="subtract">-</button>
-        <button class ='operator'id="multiply">x</button>
-        <button class ='operator'id="divide">/</button>
-        <button class ='operator'id="dot">.</button>
-        <button class ='operator'id="equalto">=</button>
-        <output id="output"></output>
-        <button id="clear">clear</button>
+    <div class="mainContainer">
+        <div class="calcContainer">
+            <div class="output">
+            <output id="output"></output>
+            </div>
+            <div class="buttonContainer">
+                <div class = 'childButtonContainer'>
+                <button id="clear">c</button> 
+                <button class = 'operator'id="backspace" >b</button>
+                <button class ='operator'id="multiply">x</button>
+                <button class ='operator'id="add">+</button>
+                </div>
+                <div class = 'childButtonContainer'>
+                <button class = 'number'id="dig7" value = '7'>7</button>
+                <button class = 'number'id="dig8" value = '8'>8</button>
+                <button class = 'number'id="dig9" value = '9'>9</button>
+                <button class ='operator'id="subtract">-</button>
+                </div>
+                <div class = 'childButtonContainer'>
+                <button class = 'number'id="dig4" value = '4'>4</button>
+                <button class = 'number'id="dig5" value = '5'>5</button>
+                <button class = 'number'id="dig6" value = '6'>6</button>
+                <button class ='operator'id="divide">/</button>
+                </div>
+                <div class = 'childButtonContainer'>
+                <button class = 'number'id="dig1" value = '1'>1</button>
+                <button class = 'number'id="dig2" value = '2'>2</button>
+                <button  class = 'number'id="dig3" value = '3'>3</button>
+                <button class ='operator'id="dot">.</button>
+                
+                </div class = 'childButtonContainer'>
+                <div class="lastTwoButtons">
+                <button class = 'number' class = 'num0' id="dig0" value = '0'>0</button>
+                
+                <button class ='operator'id="equalto">=</button>
+                </div>
+                
+                
+            </div>
+        </div>
     </div>
     
 </body>
